@@ -27,4 +27,6 @@ urlpatterns = [
     url(r'^accounts/logout/$', 'warcraft.views.logout'),
     url(r'^accounts/loggedin/$', 'warcraft.views.loggedin'),
     url(r'^accounts/invalid/$', 'warcraft.views.invalid_login'),
+    url(r'^accounts/internalLogin/user/(?P<username>\w{1,50})/$', 'warcraft.views.internalLogin')
+    #url(r'^accounts/internalLogin/$', 'warcraft.views.internalLogin'),
 ]
