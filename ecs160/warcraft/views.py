@@ -60,5 +60,16 @@ def loggedin(request):
 def invalid_login(request):
     return render_to_response('warcraft/invalid_login.html')
     
+def internalLogin (request, username=None):
+    password = request.GET.get('ps')
+    
+    user = auth.authenticate(username=username, password=password)
+    if user is not None:
+        auth.login(request, user)
+        return HttpResponseRedirect('/accounts/loggedin')
+    else:
+        return HttpResponseRedirect('/accounts/invalid')
+
+    
     
     
